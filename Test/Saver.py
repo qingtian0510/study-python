@@ -8,9 +8,10 @@ result=v1+v2
 init_op=tf.initialize_all_variables()
 
 saver=tf.train.Saver()
+saver.export_meta_graph("path/to/mode.ckpt.meda.json",as_text=True)
 
 with tf.Session() as sess:
-    # sess.run(init_op)
-    # saver.save(sess,"path/model.ckpt")
-    saver.restore(sess,"path/model.ckpt")
-    print sess.run(result)
+    sess.run(init_op)
+    saver.save(sess,"path/model.ckpt")
+    # saver.restore(sess,"path/model.ckpt")
+    # print sess.run(result)
